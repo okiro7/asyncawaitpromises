@@ -59,17 +59,21 @@ const promise3 = new Promise((resolve, reject) => {
 
 //async await
 async function getPostRest() {
-  const data = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await fetch("https://jsonplaceholder.typicode.com/users");
 
   const resp = await data.json();
-
-  const dpost = await resp.map(item => {
+  console.log(resp);
+  /*const dpost = resp.map(async item => {
     const comments = fetch(
-      "https://jsonplaceholder.typicode.com/posts/1/comments"
-    );
-    const respc = comments.json();
-    console.log(respc);
-  });
+      "https://jsonplaceholder.typicode.com/posts?userId=1"
+    ).then(res => {
+      //const respc = comments.json();
+      console.log("res  ", res.json());
+      //      return respc.title;
+    });
+  });*/
+
+  // console.log("-->  ", dpost);
 }
 
 getPostRest();
